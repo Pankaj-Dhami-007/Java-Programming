@@ -36,7 +36,7 @@ public class RunnebleClass {
         TaskRunnable runnable = new TaskRunnable(task);  // Wrap it in a Runnable
 
         Thread thread = new Thread(runnable);    // Create a Thread to run the task
-        thread.start();                          // Start the threa
+        thread.start();                          // Start the thread
     }
 }
 
