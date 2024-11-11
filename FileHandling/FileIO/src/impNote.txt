@@ -1,0 +1,30 @@
+## BufferedReader: 
+
+It reads larger chunks of text at once (from the file or input source) and stores them in a buffer, allowing faster and more efficient reading of characters, arrays, or lines.
+
+It provides the convenient readLine() method to read an entire line of text.
+The readLine() method reads each line of text from the file, and the loop continues until the end of the file is reached (readLine() returns null when there’s nothing more to read).
+
+
+## BufferedWriter: 
+
+Instead of writing each character or string directly to the output (which would be slower), it buffers the characters and writes them in larger chunks when the buffer is full or when you explicitly flush the buffer.
+It provides the write() method for writing strings, characters, or arrays and newLine() to insert line breaks.
+
+
+
+
+@@ Why Use BufferedReader and BufferedWriter?
+Performance:
+
+Using BufferedReader and BufferedWriter improves performance because they reduce the number of I/O operations. Instead of reading or writing data one character at a time, they handle larger chunks of data at once.
+
+Convenience Methods:
+
+BufferedReader provides readLine(), which is very useful for reading text line by line.
+BufferedWriter provides newLine() to add line breaks in a platform-independent way.
+
+When to Use:
+
+Use BufferedReader when you need to read a large text file or input data from the user in an efficient way.
+Use BufferedWriter when you need to write a lot of text data to a file in an efficient manner.
