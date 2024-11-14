@@ -2,12 +2,13 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-       Methods methods = new Methods();
-       methods.methods();
+    //    Methods methods = new Methods();
+    //    methods.methods();
 
     //    CreatingArrayList create = new CreatingArrayList();
     //    create.create();
 
+    TraversalInList travarseList = new TraversalInList();
+    travarseList.traverse();
     }
 }
