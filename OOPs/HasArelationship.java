@@ -25,7 +25,8 @@ types ----->>
 Type of Association	Definition	Example
 
 Unidirectional   	One object knows another.	                      Student → Teacher
-Bidirectional   	Both objects know each other.	                   Teacher ↔ Student
+Bidirectional   	Both objects know each other.	 
+                  Teacher ↔ Student
 Aggregation   	Part of another, but both can exist alone.	            Library has Books
 Composition   	Stronger connection; parts cannot exist alone.	         House has Rooms
 Dependency   	One object needs another for functionality.	           Car depends on Engine

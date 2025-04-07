@@ -1,0 +1,76 @@
+The @Qualifier 
+-->annotation in Java is used in Spring framework to resolve ambiguity when you have multiple beans of the same type and need to specify exactly which one should be injected.
+
+
+public interface PaymentService {
+    String processPayment(double amount);
+}
+
+
+@Component
+@Qualifier("googlePay")  // Mark this as GooglePay implementation
+public class GooglePayService implements PaymentService {
+    @Override
+    public String processPayment(double amount) {
+        return "Payment of ₹" + amount + " processed via GooglePay";
+    }
+}
+
+@Component
+@Qualifier("phonePe")  // Mark this as PhonePe implementation
+public class PhonePeService implements PaymentService {
+    @Override
+    public String processPayment(double amount) {
+        return "Payment of ₹" + amount + " processed via PhonePe";
+    }
+}
+
+@Service
+public class PaymentProcessor {
+    
+    private final PaymentService googlePay;
+    private final PaymentService phonePe;
+    
+    // Constructor injection with qualifiers
+    public PaymentProcessor(
+            @Qualifier("googlePay") PaymentService googlePay,
+            @Qualifier("phonePe") PaymentService phonePe) {
+        this.googlePay = googlePay;
+        this.phonePe = phonePe;
+    }
+    
+    public String payWithGooglePay(double amount) {
+        return googlePay.processPayment(amount);
+    }
+    
+    public String payWithPhonePe(double amount) {
+        return phonePe.processPayment(amount);
+    }
+}
+
+@SpringBootApplication
+public class PaymentApp implements CommandLineRunner {
+    
+    @Autowired
+    private PaymentProcessor paymentProcessor;
+    
+    public static void main(String[] args) {
+        SpringApplication.run(PaymentApp.class, args);
+    }
+    
+    @Override
+    public void run(String... args) {
+        System.out.println(paymentProcessor.payWithGooglePay(1000));
+        System.out.println(paymentProcessor.payWithPhonePe(500));
+    }
+}
+
+
+output-->
+
+Payment of ₹1000.0 processed via GooglePay
+Payment of ₹500.0 processed via PhonePe
+
+
+
+

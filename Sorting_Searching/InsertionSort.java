@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class InsertionSort {
     static void sortInsertion(int arr[]){
         int n = arr.length;
@@ -5,11 +7,15 @@ public class InsertionSort {
             int j = i;
             while(j > 0 && arr[j] < arr[j-1]){
                 // swap
+                
                 int temp = arr[j];
                 arr[j] = arr[j-1];
                 arr[j-1] = temp;
+                System.out.println("i: " + i + ", j: " + j + ", arr: " + Arrays.toString(arr));
                 j--;
+ 
             }
+            
         }
     }
     static void printArray(int arr[]){
